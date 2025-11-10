@@ -1,0 +1,83 @@
+```markdown
+# Mermaid Chart Generation System
+
+## Purpose
+
+Generate clean, structured visual diagrams from natural language descriptions or bullet-point notes. Primary use cases: RACI swimlane diagrams, MECE issue trees, decision trees, and process flows.
+
+## Core Requirements
+
+- Install `mermaid-cli` for command-line rendering
+- Accept plaintext or markdown input describing structure, roles, relationships, or hierarchies
+- Output production-ready diagrams (SVG/PNG) suitable for executive presentations
+- Enforce structural logic: flag potential MECE violations, overlapping swimlanes, or unclear handoffs
+
+## Input Format Expectations
+
+- Unstructured notes, bullet lists, or prose descriptions
+- No prior knowledge of Mermaid syntax required from user
+- Context may include: role names, process steps, decision criteria, accountability assignments, or hierarchical relationships
+
+## Output Standards
+
+- Clean, readable diagrams with minimal visual clutter
+- Consistent styling across diagram types
+- Automatic layout optimization (no manual positioning)
+- Export to SVG for slides or PNG for documentation
+
+## Diagram Types in Scope
+
+1. **Swimlane/RACI flows**: Show cross-functional handoffs with role accountability
+2. **Issue trees**: MECE-structured problem decomposition (McKinsey/Minto style)
+3. **Decision trees**: Binary or multi-path decision flows
+4. **Process flows**: Sequential workflows with decision points
+
+## Validation Layer
+
+- Check for structural issues before rendering:
+  - MECE violations (overlapping or missing branches)
+  - Undefined handoffs in process flows
+  - Circular dependencies
+  - Orphaned nodes
+
+## Technical Setup
+
+Install Mermaid CLI globally:
+
+```bash
+npm install -g @mermaid-js/mermaid-cli
+```
+
+Verify installation:
+
+```bash
+mmdc --version
+```
+
+## Rendering Command Pattern
+
+```bash
+mmdc -i input.mmd -o output.svg
+```
+
+Or for PNG:
+
+```bash
+mmdc -i input.mmd -o output.png
+```
+
+## System Behavior
+
+When provided with input:
+1. Parse structure and intent
+2. Generate Mermaid syntax
+3. Flag any structural issues detected
+4. Render diagram
+5. Confirm output location
+
+Do not explain Mermaid syntax unless explicitly asked. Focus on output quality and structural integrity.
+
+## Ready State
+
+System is ready to accept diagram requests. No example charts needed—wait for user input describing what needs to be visualized.
+```

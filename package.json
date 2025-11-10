@@ -1,0 +1,23 @@
+{
+  "name": "mermaid-visual-charts",
+  "version": "1.0.0",
+  "description": "Generate clean, structured visual diagrams from natural language descriptions. Supports RACI swimlane diagrams, MECE issue trees, decision trees, and process flows.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mermaid",
+    "diagrams",
+    "charts",
+    "visualization",
+    "raci",
+    "mece",
+    "decision-trees",
+    "process-flows"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {}
+}
