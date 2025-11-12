@@ -1,0 +1,89 @@
+graph TB
+    %% Salesforce Quote Configuration - Executive Flow
+    %% Principle: Default to best terms for company, unlock fields only when needed
+
+    Start["Salesperson<br/>Creates Quote"]
+
+    %% Default State (Optimal for Company)
+    DefaultState["SYSTEM AUTO-SELECTS<br/>Incoterm: EXW (Ex Works)<br/>Payment Terms: Net 30<br/>Collection Address: Auto-populated"]
+
+    %% Address Display - Default
+    DefaultAddress["✓ Collection Address Shown<br/>✗ Delivery Address Hidden<br/>✗ Freight/Insurance Hidden"]
+
+    %% Decision Point
+    ChangeIncoterm{"Salesperson<br/>Changes Incoterm?"}
+
+    %% Simple Path (Stays EXW)
+    StayEXW["Quote Remains Simple<br/>EXW = Customer Collects<br/>No freight calculations needed"]
+
+    CompleteSimple["✓ Quote Complete<br/>Minimal fields required<br/>Best terms for company"]
+
+    %% Changed Incoterm Path (More Complex)
+    ChangedInco["Salesperson Selects:<br/>FCA / CPT / CIP / DAP / DDP"]
+
+    UnlockFields["SYSTEM UNLOCKS FIELDS<br/>✓ Delivery Address (required)<br/>✓ Freight Cost (auto-calc)<br/>✓ Insurance (conditional)"]
+
+    AdditionalWork["Salesperson Must Now:<br/>• Verify delivery address<br/>• Review freight calculation<br/>• Consider insurance"]
+
+    CompleteComplex["✓ Quote Complete<br/>More fields completed<br/>Additional costs included"]
+
+    %% Credit Check Process
+    CreditCheck["SYSTEM CREDIT CHECK<br/>Account Lookup:<br/>• Has credit terms?<br/>• Quote value vs. credit limit?"]
+
+    HasCredit{"Credit Status?"}
+
+    CreditApproved["✓ Has Credit Terms<br/>Quote ≤ Credit Limit<br/>Net 30 Approved"]
+
+    NoCreditTerms["⚠ No Credit Terms<br/>CASH ACCOUNT Required<br/>COD or Payment Upfront"]
+
+    ExceedsLimit["⛔ QUOTE BLOCKED<br/>Quote > Credit Limit<br/>Credit increase required"]
+
+    CreditIncrease["Action Required:<br/>Customer must request<br/>higher credit tier approval"]
+
+    %% Main Flow
+    Start --> DefaultState
+    DefaultState --> DefaultAddress
+    DefaultAddress --> ChangeIncoterm
+
+    %% EXW Path (Simple)
+    ChangeIncoterm -->|No - Keep EXW| StayEXW
+    StayEXW --> CreditCheck
+
+    %% Changed Incoterm Path (Complex)
+    ChangeIncoterm -->|Yes - Change Incoterm| ChangedInco
+    ChangedInco --> UnlockFields
+    UnlockFields --> AdditionalWork
+    AdditionalWork --> CreditCheck
+
+    %% Credit Check Decision Tree
+    CreditCheck --> HasCredit
+
+    HasCredit -->|Has Credit & Within Limit| CreditApproved
+    HasCredit -->|No Credit Terms| NoCreditTerms
+    HasCredit -->|Exceeds Credit Limit| ExceedsLimit
+
+    %% Final Steps
+    CreditApproved --> CompleteSimple
+    NoCreditTerms --> CompleteComplex
+    ExceedsLimit --> CreditIncrease
+
+    %% Styling
+    classDef rootStyle fill:#2E4057,stroke:#333,stroke-width:3px,color:#fff
+    classDef primaryStyle fill:#048A81,stroke:#333,stroke-width:2px,color:#fff
+    classDef defaultStyle fill:#51CF66,stroke:#333,stroke-width:2px,color:#fff
+    classDef workflowStyle fill:#DF6589,stroke:#333,stroke-width:2px,color:#fff
+    classDef decisionStyle fill:#FFD93D,stroke:#333,stroke-width:2px,color:#000
+    classDef warningStyle fill:#FFA500,stroke:#333,stroke-width:2px,color:#000
+    classDef blockedStyle fill:#FF6B6B,stroke:#333,stroke-width:3px,color:#fff
+    classDef completeStyle fill:#54C6EB,stroke:#333,stroke-width:2px,color:#000
+    classDef creditCheckStyle fill:#048A81,stroke:#333,stroke-width:2px,color:#fff
+
+    class Start rootStyle
+    class DefaultState,DefaultAddress defaultStyle
+    class StayEXW,CreditApproved primaryStyle
+    class ChangedInco,UnlockFields,AdditionalWork workflowStyle
+    class ChangeIncoterm,HasCredit decisionStyle
+    class CreditCheck creditCheckStyle
+    class NoCreditTerms warningStyle
+    class ExceedsLimit,CreditIncrease blockedStyle
+    class CompleteSimple,CompleteComplex completeStyle

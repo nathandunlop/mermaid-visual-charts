@@ -1,0 +1,65 @@
+graph TB
+    Root["Outbound Targeting Framework<br/>Fuel / TTNM ICPs"]
+
+    %% Top Level Strategy
+    Root --> Insights["CROSS-ICP INSIGHTS"]
+    Root --> ICPs["TARGET ICPs<br/>(MECE Framework)"]
+    Root --> Process["IDENTIFICATION & OUTREACH<br/>PROCESS"]
+
+    %% ICP Segmentation Branch - Vertical Stacking with Priority Order
+    ICPs --> ICP1["ICP 1: MINING & RESOURCES [P1]<br/>Australian Mines open-pit, underground, quarries"]
+    ICP1 --> ICP1_Why["DRIVERS (Why):<br/>Largest diesel user in Australia<br/>Warm relationships via major oil companies"]
+    ICP1_Why --> ICP1_Pain["CHALLENGES (Pain Points):<br/>• DSO delays from manual AR/AP reconciliation<br/>• Dissatisfaction with Banlaw/Veriadapt gaps<br/>• Poor lubricant inventory visibility<br/>• Tax/emissions compliance complexity with siloed data"]
+    ICP1_Pain --> ICP1_Value["VALUE LEVERS (Solution Fit):<br/>Automate hydrocarbon tracking to reduce DSO by 3-5 days<br/>E2E fuel solutions replacing incumbent systems<br/>Low-cost gauging for real-time lube/grease visibility"]
+    ICP1_Value --> ICP1_Roles["ROLES (Who):<br/>• Operations Executive (GM Ops, Head of Asset Management)<br/>• Finance & Compliance (CFO, Financial Controller Site)<br/>• Digital / Transformation (Digital Transformation Lead)<br/>• Procurement (Fuel & Consumables Manager)"]
+
+    ICPs --> ICP2["ICP 2: TRANSPORT & LOGISTICS [P1]<br/>Depot-based heavy vehicle fleets"]
+    ICP2 --> ICP2_Why["DRIVERS (Why):<br/>Centralized depot infrastructure<br/>Warm relationships via TTN network"]
+    ICP2_Why --> ICP2_Pain["CHALLENGES (Pain Points):<br/>• Fuel variance & theft exposure at depots<br/>• Chain of Responsibility compliance pressure<br/>• Manual reconciliation inefficiency"]
+    ICP2_Pain --> ICP2_Value["VALUE LEVERS (Solution Fit):<br/>Improve depot fuel variance tracking to reduce shrinkage by up to 2%<br/>Automate FTC compliance documentation<br/>Integrate telematics for unified fleet data"]
+    ICP2_Value --> ICP2_Roles["ROLES (Who):<br/>• Operations Executive (Head of Fleet, GM Supply Chain)<br/>• Finance & Compliance (Director of Finance)<br/>• Digital / Transformation (Head of Digital / Telematics)<br/>• Procurement (National Procurement Manager)"]
+
+    ICPs --> ICP3["ICP 3: COUNCILS [P2]<br/>Local government, municipal fleets"]
+    ICP3 --> ICP3_Why["DRIVERS (Why):<br/>Existing relationships in market<br/>ESG mandate pressure from public accountability"]
+    ICP3_Why --> ICP3_Pain["CHALLENGES (Pain Points):<br/>• ESG reporting requirements & data gaps<br/>• Budget accountability & cost scrutiny<br/>• Multi-depot coordination complexity"]
+    ICP3_Pain --> ICP3_Value["VALUE LEVERS (Solution Fit):<br/>Digitize ESG & FTC compliance for seamless audits<br/>Centralize multi-depot fuel data for budget transparency<br/>Automate environmental reporting workflows"]
+    ICP3_Value --> ICP3_Roles["ROLES (Who):<br/>• Operations Executive (Director of Infrastructure & Assets)<br/>• Finance & Compliance (CFO, Head of Sustainability / ESG)<br/>• Procurement (Procurement & Contracts Manager)"]
+
+    ICPs --> ICP4["ICP 4: WASTE & SERVICE CONTRACTORS [P2]<br/>Waste, road maintenance, ancillary fuel"]
+    ICP4 --> ICP4_Why["DRIVERS (Why):<br/>Unclaimed tax credit opportunity<br/>Low digital competition = market gap"]
+    ICP4_Why --> ICP4_Pain["CHALLENGES (Pain Points):<br/>• Unclaimed fuel tax credits (dual fuel systems)<br/>• Manual FTC compliance documentation burden<br/>• No digital audit trail for regulatory defense"]
+    ICP4_Pain --> ICP4_Value["VALUE LEVERS (Solution Fit):<br/>Create automated FTC documentation trail for mixed-use fleets<br/>Unlock unclaimed tax credits through dual-system tracking<br/>Digital audit trail for compliance defense"]
+    ICP4_Value --> ICP4_Roles["ROLES (Who):<br/>• Operations Executive (GM Ops, Head of Fleet / Logistics)<br/>• Finance & Compliance (Finance Director, Head of Compliance)<br/>• Procurement (Commercial Manager)"]
+
+    %% Process Branch - Vertical Sequential with Enhanced Details
+    Process --> Step1["STEP 1: IDENTIFY<br/>Tools: Clay, Apollo, Sales Navigator<br/>Filters: Operator type, fleet size, keywords (depot, refuelling, fleet maintenance)<br/>Exclude: Recruitment, SaaS, Media, Software, Consulting"]
+    Step1 --> Step2["STEP 2: PRIORITISE<br/>Lead scoring in shared spreadsheet<br/>Rank by: Signal strength + ICP fit + relationship warmth<br/>Enrichment: LinkedIn role relevance + fuel asset intensity"]
+    Step2 --> Step3["STEP 3: OUTREACH<br/>LinkedIn outreach (HeyReach vs Sales Nav trial)<br/>Message Themes by Persona:<br/>• Ops: Efficiency, uptime, data unification<br/>• Finance: FTC recovery, DSO reduction, audit defensibility<br/>• Digital/Transformation: Integration, data architecture simplification<br/>• Procurement: Vendor consolidation, contract compliance"]
+    Step3 --> Step4["STEP 4: SET MEETING<br/>Convert: Engaged → Qualified → Booked<br/>Schedule discovery calls"]
+
+    %% Cross-ICP Insights Box
+    Insights --> SharedChallenges["SHARED CHALLENGES:<br/>• Manual reconciliation processes<br/>• FTC compliance complexity<br/>• Fragmented fuel management systems"]
+    Insights --> SharedPersona["SHARED BUYER PERSONA:<br/>Fleet/Fuel/Site Manager-level roles<br/>Operational decision-makers with infrastructure control"]
+    Insights --> SharedOpportunity["SHARED OPPORTUNITY:<br/>Digital maturity gap across all segments<br/>Low penetration of integrated fuel solutions"]
+
+    %% Styling
+    classDef rootStyle fill:#2E4057,stroke:#333,stroke-width:3px,color:#fff
+    classDef primaryStyle fill:#048A81,stroke:#333,stroke-width:2px,color:#fff
+    classDef icpStyle fill:#54C6EB,stroke:#333,stroke-width:2px,color:#000
+    classDef whyStyle fill:#FFD93D,stroke:#333,stroke-width:2px,color:#000
+    classDef painStyle fill:#FF6B6B,stroke:#333,stroke-width:2px,color:#fff
+    classDef valueStyle fill:#51CF66,stroke:#333,stroke-width:2px,color:#000
+    classDef detailStyle fill:#8FCFD1,stroke:#333,stroke-width:1px,color:#000
+    classDef workflowStyle fill:#DF6589,stroke:#333,stroke-width:2px,color:#fff
+    classDef insightStyle fill:#9775FA,stroke:#333,stroke-width:2px,color:#fff
+    classDef tierStyle fill:#868E96,stroke:#333,stroke-width:2px,color:#fff
+
+    class Root rootStyle
+    class ICPs,Process,Insights primaryStyle
+    class ICP1,ICP2,ICP3,ICP4 icpStyle
+    class ICP1_Why,ICP2_Why,ICP3_Why,ICP4_Why whyStyle
+    class ICP1_Pain,ICP2_Pain,ICP3_Pain,ICP4_Pain painStyle
+    class ICP1_Value,ICP2_Value,ICP3_Value,ICP4_Value valueStyle
+    class ICP1_Roles,ICP2_Roles,ICP3_Roles,ICP4_Roles detailStyle
+    class Step1,Step2,Step3,Step4 workflowStyle
+    class SharedChallenges,SharedPersona,SharedOpportunity insightStyle

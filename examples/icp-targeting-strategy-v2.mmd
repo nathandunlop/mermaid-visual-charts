@@ -1,0 +1,48 @@
+graph TB
+    Root["Outreach Plan - Fuel / TTNM ICPs"]
+
+    %% Top Level Strategy
+    Root --> ICPs["TARGET ICPs<br/>(MECE Framework)"]
+    Root --> Process["IDENTIFICATION & OUTREACH<br/>PROCESS"]
+
+    %% ICP Segmentation Branch - Vertical Stacking with Priority Order
+    ICPs --> ICP1["ICP 1: MINING & RESOURCES [P1]<br/>Australian Mines open-pit, underground, quarries"]
+    ICP1 --> ICP1_Why["WHY: Largest diesel user in Australia<br/>Warm relationships via major oil companies"]
+    ICP1_Why --> ICP1_Drivers["PAIN POINTS:<br/>• DSO delays from manual AR/AP reconciliation<br/>• Dissatisfaction with Banlaw/Veriadapt gaps<br/>• Poor lubricant inventory visibility<br/>• Tax/emissions compliance complexity with siloed data"]
+    ICP1_Drivers --> ICP1_Roles["Roles: Maintenance Superintendent<br/>Hydrocarbon Technician<br/>Fleet Manager"]
+
+    ICPs --> ICP2["ICP 2: TRANSPORT & LOGISTICS [P1]<br/>Depot-based heavy vehicle fleets"]
+    ICP2 --> ICP2_Why["WHY: Centralized depot infrastructure<br/>Warm relationships via TTN network"]
+    ICP2_Why --> ICP2_Drivers["PAIN POINTS:<br/>• Fuel variance & theft exposure at depots<br/>• Chain of Responsibility compliance pressure<br/>• Manual reconciliation inefficiency"]
+    ICP2_Drivers --> ICP2_Roles["Roles: Fleet Manager<br/>Workshop Manager<br/>Depot Supervisor"]
+
+    ICPs --> ICP3["ICP 3: COUNCILS [P2]<br/>Local government, municipal fleets"]
+    ICP3 --> ICP3_Why["WHY: Existing relationships in market<br/>ESG mandate pressure from public accountability"]
+    ICP3_Why --> ICP3_Drivers["PAIN POINTS:<br/>• ESG reporting requirements & data gaps<br/>• Budget accountability & cost scrutiny<br/>• Multi-depot coordination complexity"]
+    ICP3_Drivers --> ICP3_Roles["Roles: Fleet Coordinator<br/>Works Manager<br/>Environmental Officer"]
+
+    ICPs --> ICP4["ICP 4: WASTE & SERVICE CONTRACTORS [P2]<br/>Waste, road maintenance, ancillary fuel"]
+    ICP4 --> ICP4_Why["WHY: Unclaimed tax credit opportunity<br/>Low digital competition = market gap"]
+    ICP4_Why --> ICP4_Drivers["PAIN POINTS:<br/>• Unclaimed fuel tax credits (dual fuel systems)<br/>• Manual FTC compliance documentation burden<br/>• No digital audit trail for regulatory defense"]
+    ICP4_Drivers --> ICP4_Roles["Roles: Fleet Maintenance Manager<br/>Workshop Supervisor<br/>Asset Engineer"]
+
+    %% Process Branch - Vertical Sequential
+    Process --> Step1["STEP 1: IDENTIFY<br/>Tools: Clay, Apollo, Sales Navigator<br/>Target operators matching ICP criteria"]
+    Step1 --> Step2["STEP 2: PRIORITISE<br/>Lead scoring in shared spreadsheet<br/>Rank by: Signal strength + ICP fit + relationship warmth"]
+    Step2 --> Step3["STEP 3: OUTREACH<br/>LinkedIn outreach<br/>Trial: HeyReach vs Sales Navigator"]
+    Step3 --> Step4["STEP 4: SET MEETING<br/>Convert: Engaged → Qualified → Booked<br/>Schedule discovery calls"]
+
+    %% Styling
+    classDef rootStyle fill:#2E4057,stroke:#333,stroke-width:3px,color:#fff
+    classDef primaryStyle fill:#048A81,stroke:#333,stroke-width:2px,color:#fff
+    classDef icpStyle fill:#54C6EB,stroke:#333,stroke-width:2px,color:#000
+    classDef whyStyle fill:#FFD93D,stroke:#333,stroke-width:2px,color:#000
+    classDef detailStyle fill:#8FCFD1,stroke:#333,stroke-width:1px,color:#000
+    classDef workflowStyle fill:#DF6589,stroke:#333,stroke-width:2px,color:#fff
+
+    class Root rootStyle
+    class ICPs,Process primaryStyle
+    class ICP1,ICP2,ICP3,ICP4 icpStyle
+    class ICP1_Why,ICP2_Why,ICP3_Why,ICP4_Why whyStyle
+    class ICP1_Drivers,ICP1_Roles,ICP2_Drivers,ICP2_Roles,ICP3_Drivers,ICP3_Roles,ICP4_Drivers,ICP4_Roles detailStyle
+    class Step1,Step2,Step3,Step4 workflowStyle

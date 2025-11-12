@@ -1,0 +1,48 @@
+graph TB
+    Root["Outreach Plan - Fuel / TTNM ICPs"]
+
+    %% Top Level Strategy
+    Root --> ICPs["TARGET ICPs<br/>"]
+    Root --> Workflow["Identification Process<br/>"]
+
+    %% ICP Segmentation Branch - Vertical Stacking
+    ICPs --> ICP1["ICP 1: MINING & RESOURCES<br/>Australian Mines open-pit, underground, quarries"]
+    ICP1 --> ICP1_Drivers["Drivers: High fuel throughput<br/>Hydrocarbon teams<br/>ROI on automation"]
+    ICP1_Drivers --> ICP1_Roles["Roles: Maintenance Superintendent<br/>Hydrocarbon Technician<br/>Fleet Manager"]
+    ICP1_Roles --> ICP1_Signals["Signals: refuelling, haul truck<br/>diesel efficiency, fuel bay"]
+
+    ICPs --> ICP2["ICP 2: TRANSPORT & LOGISTICS<br/>Depot-based heavy vehicle fleets"]
+    ICP2 --> ICP2_Drivers["Drivers: Depot refuelling<br/>Fleet efficiency<br/>FTC compliance"]
+    ICP2_Drivers --> ICP2_Roles["Roles: Fleet Manager<br/>Workshop Manager<br/>Depot Supervisor"]
+    ICP2_Roles --> ICP2_Signals["Signals: fleet efficiency<br/>fuel depot, diesel storage<br/>chain of responsibility"]
+
+    ICPs --> ICP3["ICP 3: MUNICIPAL & GOVERNMENT<br/>Councils, waste, road maintenance"]
+    ICP3 --> ICP3_Drivers["Drivers: Tender cycles<br/>ESG reporting<br/>Multi-depot management"]
+    ICP3_Drivers --> ICP3_Roles["Roles: Fleet Coordinator<br/>Works Manager<br/>Environmental Officer"]
+    ICP3_Roles --> ICP3_Signals["Signals: refueling depot<br/>waste fleet, fuel compliance<br/>environmental reporting"]
+
+    ICPs --> ICP4["ICP 4: SERVICE CONTRACTORS<br/>Ancillary fuel users (sweepers, jetters)"]
+    ICP4 --> ICP4_Drivers["Drivers: Dual fuel systems<br/>Compliance gaps<br/>Low digitalization"]
+    ICP4_Drivers --> ICP4_Roles["Roles: Fleet Maintenance Manager<br/>Workshop Supervisor<br/>Asset Engineer"]
+    ICP4_Roles --> ICP4_Signals["Signals: diesel burner<br/>hydraulic tank, onboard fuel<br/>ancillary use"]
+
+    %% Workflow Branch - Vertical Sequential
+    Workflow --> Stage1["STAGE 1: Company ID<br/>Tool: Identify Companies<br/>Industry + Location + Keywords"]
+    Stage1 --> Stage2["STAGE 2: Signal Detection<br/>Tool: Find Keywords in Posts<br/>Filter for fuel-related content"]
+    Stage2 --> Stage3["STAGE 3: Role Mapping<br/>Tool: Identify People<br/>Operational/tactical roles"]
+    Stage3 --> Stage4["STAGE 4: Context Enrichment<br/>Tools: Company Description<br/>Size, News, Fleet data"]
+
+    %% Styling
+    classDef rootStyle fill:#2E4057,stroke:#333,stroke-width:3px,color:#fff
+    classDef primaryStyle fill:#048A81,stroke:#333,stroke-width:2px,color:#fff
+    classDef icpStyle fill:#54C6EB,stroke:#333,stroke-width:2px,color:#000
+    classDef detailStyle fill:#8FCFD1,stroke:#333,stroke-width:1px,color:#000
+    classDef workflowStyle fill:#DF6589,stroke:#333,stroke-width:2px,color:#fff
+    classDef phaseStyle fill:#3C3C3C,stroke:#333,stroke-width:2px,color:#fff
+
+    class Root rootStyle
+    class Objective,Exclusions,ICPs,Workflow,Implementation primaryStyle
+    class ICP1,ICP2,ICP3,ICP4,ICP5 icpStyle
+    class ICP1_Drivers,ICP1_Roles,ICP1_Signals,ICP2_Drivers,ICP2_Roles,ICP2_Signals,ICP3_Drivers,ICP3_Roles,ICP3_Signals,ICP4_Drivers,ICP4_Roles,ICP4_Signals,ICP5_Drivers,ICP5_Roles,ICP5_Signals detailStyle
+    class Stage1,Stage2,Stage3,Stage4 workflowStyle
+    class Phase1,Phase2,Phase3 phaseStyle

@@ -1,0 +1,26 @@
+graph TB
+    Root["Outbound Targeting Framework<br/>Fuel / TTNM ICPs<br/><br/>Executive Summary"]
+
+    %% Three Main Sections
+    Root --> Insights["SHARED CHALLENGES<br/>(Cross-ICP Insights)"]
+    Root --> Who["WHO WE'RE TARGETING<br/>(4 Priority ICPs)"]
+    Root --> How["HOW WE'RE TARGETING<br/>(Digital Process)"]
+
+    %% Shared Challenges - Compact
+    Insights --> InsightDetail["• Manual reconciliation processes<br/>• FTC compliance complexity<br/>• Fragmented fuel management systems<br/>• Digital maturity gap across segments"]
+
+    %% Who - Simple ICP List
+    Who --> WhoDetail["1. Mining & Resources [P1]<br/>2. Transport & Logistics [P1]<br/>3. Councils [P2]<br/>4. Waste & Service Contractors [P2]"]
+
+    %% How - Sequential Process (Single Box)
+    How --> ProcessDetail["1. IDENTIFY: Clay • Apollo • Sales Navigator<br/>2. PRIORITISE: Lead Scoring & Ranking<br/>3. OUTREACH: LinkedIn (HeyReach/Sales Nav)<br/>4. SET MEETING: Discovery Calls"]
+
+    %% Styling
+    classDef rootStyle fill:#2E4057,stroke:#333,stroke-width:3px,color:#fff
+    classDef sectionStyle fill:#048A81,stroke:#333,stroke-width:2px,color:#fff
+    classDef contentStyle fill:#54C6EB,stroke:#333,stroke-width:1px,color:#000
+    classDef processStyle fill:#DF6589,stroke:#333,stroke-width:1px,color:#fff
+
+    class Root rootStyle
+    class Insights,Who,How sectionStyle
+    class InsightDetail,WhoDetail,ProcessDetail contentStyle
